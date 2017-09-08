@@ -1,0 +1,103 @@
+def viewjournal(request):
+    if request.method == "POST":
+	    form = ViewJournalForm(request.POST)
+	    if form.is_valid():
+		    journal=form.save()
+			#return redirect('app4/journals.html',pk=viewjournal.pk)  , id=journal.id
+		    return HttpResponseRedirect('researchapp/journals.html')
+    else:
+	    form=ViewJournalForm()
+    return render(request, 'researchapp/viewjournal.html',{'form':form})
+    #return render(request,'app4/viewjournal.html',{'name':'Uma'})
+
+def hello(request):
+	return render(request,'researchapp/hello.html', {'name':'Uma'})
+
+
+def editjournal(request, id):
+    form_class=ViewJournalForm
+    form=form_class(request.POST or None)
+    if request.method=="POST":
+	    paper=get_object_or_404(Journal, id=id)
+	    form=ViewJournalForm(instance=paper)
+	    if form.is_valid():
+		    form=form.save(commit=False)
+		    form.save()
+		    return HttpResponseRedirect('researchapp/journals.html', id=form.id)
+    else:
+        form=ViewJournalForm()
+        paper=get_object_or_404(Journal,id=id)
+        form=ViewJournalForm(instance=paper)
+        if form.is_valid():
+            form=form.save(commit=false)
+            form.save()
+            return HttpResponseRedirect('researchapp/journals.html')
+    return render(request, 'researchapp/editjournal.html', {'form':form})
+
+def editjournal2(request, id=2):
+    paper=get_object_or_404(Journal,id=id)
+    if request.method=="POST":
+	    form=ViewJournalForm(instance=paper)
+	    if form.is_valid():
+		    form.save()
+		    return HttpResponseRedirect('researchapp/journals.html')
+    else:
+	    form=ViewJournalForm(instance=paper)
+	    if form.is_valid():
+		    form.save()
+		    return HttpResponseRedirect('researchapp/journals.html')
+    return render(request, 'researchapp/editjournal2.html', {'form':form})
+			
+
+def checkid(request, checkid):
+    return HttpResponse("You are here with checkid = %s." % checkid)
+	
+
+url(r'^viewjournal/',views.viewjournal, name='viewjournal'),
+				url(r'^editjournal/(?P<id>[0-9]+)/',views.editjournal, name='editjournal'),
+				url(r'^editjournal2/2/',views.editjournal2, name='editjournal2'),
+				url(r'^checkid/(?P<checkid>[0-9]+)/', views.checkid,name='checkid'),
+				url(r'^hello',views.hello, name='hello'),		
+				
+				
+				
+###############index . html
+
+<h3>Publication List</h3>
+	<ul>
+		<li><a href = "{% url 'researchapp:journal-list' %}">Journal</a></li>
+		<li><a href = "{% url 'researchapp:conference-list' %}">Conference</a></li>
+		<li><a href = "{% url 'researchapp:viewjournal' %}">view journal</a></li>
+		<li><a href = "{% url 'researchapp:hello' %}">hello</a></li>
+	</ul>
+	
+<h4>List of Journal Publications</h4>  
+{% if jpaper_list %}
+	<ul>
+		{% for paper in jpaper_list %}
+		<div ">
+		<!--<li><a href="/researchapp/{{paper.id }}">{{paper.papertitle}}</a></li>-->
+		<!--<li><a href = "{% url 'researchapp:viewjournal' %}">{{paper.papertitle}}</a></li>-->
+		<li><a href="{% url 'researchapp:editjournal' id=paper.id %}">{{paper.papertitle}}</a></li>
+		</div>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No journal papers are available. </p>
+{% endif %}
+
+<h4>List of Conference Publications</h4>
+{% if cpaper_list %}
+	<ul>
+		{% for paper in cpaper_list %}
+		<div class = "post">
+		<li><a href="/editjournal/1/">{{paper.cpapertitle}}</a></li>
+		</div>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No conference papers are available. </p>
+{% endif %}
+
+
+{% endblock %}				

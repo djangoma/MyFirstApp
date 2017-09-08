@@ -1,0 +1,19 @@
+{% extends 'researchapp/base.html' %}
+
+{% block content %}
+  <h3><em>Research activities of Department of Information Technology, SSNCE</em></h3>
+
+  <p>The publication details has the following record counts:</p>
+  <ul>
+    <li><strong>Journal Papers : </strong> {{ num_j_papers }}</li>
+    <li><strong>Conference papers : </strong> {{ num_c_papers }}</li>
+	<li><strong>External Funded Projects : </strong> {{ num_efp }}</li>
+    <li><strong>Internal Funded Projects-Faculty : </strong> {{ num_fifp }}</li>
+	<li><strong>Internal Funded Projects-Student  : </strong> {{ num_sifp }}</li>
+	
+  </ul>
+
+
+
+
+{% endblock %}

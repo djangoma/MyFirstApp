@@ -1,0 +1,83 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{%block title %}SSN IT - Research Activites{% endblock %}</title>
+		<style type ="text/css">
+		#body{
+			text-align=center
+		}
+		#page{
+			width:1500px;
+			text_align:left;
+			margin:10px auto 20px auto;
+			background-color:#0d0d0d;	
+		}
+		#sidebar{
+			float:left;
+			width:300px;
+			border:1px solid #f00;	
+		}
+		#content{
+			float: left;
+			width:1000px;
+			border:1px solid #f00;
+			padding:10px;
+		}
+		</style>
+		<!--<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+        <!--<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
+        <!--<link rel="stylesheet" href="{% static 'researchapp/researchapp.css' %}">-->
+    </head>
+    <body>
+	<div id="page">
+	<div id="sidebar">
+		{% block sidebar %}
+			<ul>  
+				<li><a href = "{% url 'researchapp:index' %}">Home</a></li>
+				<li><a href = "{% url 'researchapp:journal-list' %}">Journal</a></li>
+				
+				<ul>
+				<li><a href="{% url 'researchapp:journal_create' %}"> Add new</a></li>
+				</ul>
+				
+				<li><a href = "{% url 'researchapp:conference-list' %}">Conference</a></li>
+				
+				<ul>
+				<li><a href="{% url 'researchapp:conference_create' %}"> Add new</a></li>
+				</ul>
+				
+				<li><a href = "{% url 'researchapp:externalfp-list' %}">External funded projects</a></li>
+				
+				<ul>
+				<li><a href="{% url 'researchapp:externalfp_create' %}"> Add new</a></li>
+				</ul>
+				
+				<li><a href = "{% url 'researchapp:facultyifp-list' %}">Internal funded projects-Faculty</a></li>
+				
+				<ul>
+				<li><a href="{% url 'researchapp:facultyifp_create' %}"> Add new</a></li>
+				</ul>
+				
+				<li><a href = "{% url 'researchapp:studentifp-list' %}">Internal funded projects-Student</a></li>
+				
+				<ul>
+				<li><a href="{% url 'researchapp:studentifp_create' %}"> Add new</a></li>
+				</ul>
+				
+			</ul>
+		{% endblock %}
+	</div>	
+    <div id="content">
+		    {% block content %}
+            {% endblock %}
+    </div>
+	</div>
+</body>
+</html>

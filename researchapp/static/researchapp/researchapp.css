@@ -1,0 +1,22 @@
+h4 a {
+    color: #FCA205;
+    font-family: 'Verdana';
+}
+#page{
+width:960px;
+text_align:left;
+margin:10px auto 20px auto;
+background-color:#0d0d0d;	
+}
+#sidebar{
+	float:left;
+	width:200px;
+	border:1px solid #000;	
+}
+#content{
+float: left;
+width:600px;
+border:1px solid #f00;
+padding:10px;
+	
+}

@@ -1,0 +1,19 @@
+
+{% extends "researchapp/base.html" %}
+
+{% block content %}
+<h1>List of External Funded Projects</h1>
+{% if object_list %}
+<ul>
+{% for project in object_list %}
+	<li>
+		{{ project.sanctioneddate|date  }} - <a href="{{ project.get_absolute_url }}">{{ project.projecttitle }}</a>
+	</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>There are no external funded projects.</p>
+{% endif %}   
+{% endblock %}
+
+<!--   {{ paper }} - ({{ paper.publishedon|date }}) - {{paper.jtitle}} -- {{paper.get_absolute_url}} {{ paper.publishedon|date }} - <a href="{{ paper.get_absolute_url }}">{{ paper.papertitle }}</a> -->

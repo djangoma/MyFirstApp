@@ -1,0 +1,14 @@
+{% extends 'app4/base.html' %}
+
+{% block content %}
+    <h4>Journal</h4>
+	{% if name %}
+	<h2>Uma</h2>
+	{% endif %}
+	
+    <form action="/viewjournal/" method="POST" >{% csrf_token %}
+        {{ form.as_p}}
+        <!--<button type="submit" ">Save</button>-->
+		<input type="submit" name="submit" value = "Save">
+    </form>
+{% endblock %}

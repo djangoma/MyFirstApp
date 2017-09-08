@@ -1,0 +1,19 @@
+
+{% extends "researchapp/base.html" %}
+
+{% block content %}
+<h1>List of Conference Papers</h1>
+{% if object_list %}
+<ul>
+{% for paper in object_list %}
+	<li>
+		{{ paper.cdatefrom|date }} - <a href="{{ paper.get_absolute_url }}">{{ paper.cpapertitle }}</a>
+	</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>There are no conference papers.</p>
+{% endif %}   
+{% endblock %}
+
+<!--   {{ paper }} - ({{ paper.publishedon|date }}) - {{paper.jtitle}} -- {{paper.get_absolute_url}} {{ paper.publishedon|date }} - <a href="{{ paper.get_absolute_url }}">{{ paper.papertitle }}</a> -->

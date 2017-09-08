@@ -1,0 +1,24 @@
+{% extends 'researchapp/base.html' %}
+
+{% block content %}
+
+  <h3>Welcome to <em>Research activities of SSNCE-IT</em></h3>
+
+  <h4>List of Journal Publications</h4>  
+{% if jpaper_list %}
+	<ul>
+		{% for paper in jpaper_list %}
+		<div class = "post">
+		<!--<li><a href="/researchapp/{{paper.id }}">{{paper.refformat}}</a></li>-->
+		<li><a href="{% url 'researchapp:viewjournal' %}">{{paper.refformat}}</a></li>
+		<!--<li><a href="/viewjournal/{{paper.id }}">{{paper.refformat}}</a></li>-->
+		</div>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No journal papers are available. </p>
+{% endif %}
+
+{% endblock %}
+
+<h1>Hello world !</h1>

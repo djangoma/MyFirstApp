@@ -1,0 +1,20 @@
+{% extends 'app4/base.html' %}
+
+{% block content %}
+<h3>Welcome to <em>Research activities of SSNCE-IT</em></h3>
+ 
+<h4>List of External Funded Projects</h4>
+{% if efp_list %}
+	<ul>
+		{% for paper in efp_list %}
+		<div class = "post">
+		<li><a href="/app4/{{paper.id }}">{{paper.projecttitle}}</a></li>
+		</div>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> No conference papers are available. </p>
+{% endif %}
+
+
+{% endblock %}

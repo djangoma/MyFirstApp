@@ -1,0 +1,13 @@
+{% extends "researchapp/base.html" %}
+
+{% block content %}
+<h1>Project Title: {{ object.projecttitle }}</h1>
+<p>Principal investigator: {{ object.pi }}</p>
+<p>Co-Principal investigator: {{ object.copi }}</p>
+<p>Funding agency: {{ object.fundingagency }}</p>
+<p>Sanctioned amount: {{ object.sanctionedamount }}</p>
+<p>Sanctioned on: {{ object.sanctioneddate|date }}</p>
+
+
+{% endblock %}
+	

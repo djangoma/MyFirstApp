@@ -1,0 +1,11 @@
+{% extends "researchapp/base.html" %}
+
+{% block content %}
+<h1>{{ object.cpapertitle }}</h1>
+<p>{{ object.ctitle }}</p>
+<p>Author: {{ object.facultyauthorname }}</p>
+<p>Conference Date: {{ object.cdatefrom|date }}</p>
+
+
+{% endblock %}
+	

@@ -1,0 +1,29 @@
+<!--<ul>
+				<li><a href="{% url 'researchapp:journal_create' %}"> Add new</a></li>
+				<li><a href="{% url 'researchapp:journal_update' %}"> Update</a></li>
+				<li><a href="{% url 'researchapp:journal_delete' %}"> Delete</a></li>
+				</ul>-->
+				
+				<!--<ul>
+				<li><a href="{% url 'researchapp:conference_create' %}"> Add new</a></li>
+				<li><a href="{% url 'researchapp:conference_update' %}"> Update</a></li>
+				<li><a href="{% url 'researchapp:conference_delete' %}"> Delete</a></li>
+				</ul>-->
+				
+				<!--<ul>
+				<li><a href="{% url 'researchapp:externalfp_create' %}"> Add new</a></li>
+				<li><a href="{% url 'researchapp:externalfp_update' %}"> Update</a></li>
+				<li><a href="{% url 'researchapp:externalfp_delete' %}"> Delete</a></li>
+				</ul>-->
+				
+				<!--<ul>
+				<li><a href="{% url 'researchapp:facultyifp_create' %}"> Add new</a></li>
+				<li><a href="{% url 'researchapp:facultyifp_update' %}"> Update</a></li>
+				<li><a href="{% url 'researchapp:facultyifp_delete' %}"> Delete</a></li>
+				</ul>-->
+				
+				<!--<ul>
+				<li><a href="{% url 'researchapp:studentifp_create' %}"> Add new</a></li>
+				<li><a href="{% url 'researchapp:studentifp_update' %}"> Update</a></li>
+				<li><a href="{% url 'researchapp:studentifp_delete' %}"> Delete</a></li>
+				</ul>-->
